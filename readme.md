@@ -1,6 +1,5 @@
-<img src="./coronachan.png" width="500">
-
 # Corona-chan Tracker
+<img src="./coronachan.png" width="500">
 
 This script displays covid-19 data formatted for statusbars and/or panels.
 
