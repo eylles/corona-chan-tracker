@@ -6,7 +6,7 @@ get_corona () {
 	curl -s -f https://corona-stats.online/"$_location" -o ~/.cache/corona || get_corona
 }
 log_corona () {
-	cat ~/.cache/corona > ~/.cache/log_corona
+	cat ~/.cache/corona >> ~/.cache/log_corona
 }
 update_corona () {
 	if [ "$(stat -c %y ~/.cache/corona 2>/dev/null | cut -b 1-16)" != "$(date '+%Y-%m-%d %H:%M')" ] ; then
