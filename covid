@@ -21,18 +21,26 @@ show_corona () {
 	grep -i "$_location" ~/.cache/corona | sed 's/\s*//g ; s/║//g ; s/│/;/g ; s/\x1b\[[0-9;]*m//g ; s/,//g' | awk -F';' '{print "😷" $3 "(" $4") 💀"$5 "(" int(100*(100*$5/$3))/100 "%) ☺" $7 "(" int(100*(100*$7/$3))/100 "%)" }' 2>/dev/null
 	[ -z "$_location" ] && grep -i "world" ~/.cache/corona | sed 's/\s*//g ; s/║//g ; s/│/;/g ; s/\x1b\[[0-9;]*m//g ; s/,//g' | awk -F';' '{print "😷" $3 "(" $4") 💀"$5 "(" int(100*(100*$5/$3))/100 "%) ☺" $7 "(" int(100*(100*$7/$3))/100 "%)" }' 2>/dev/null
 }
-silent_mode () {
-	[ -z "$silent_output" ] && show_corona
+output_mode () {
+	[ -z "$silent_mode" ] && show_corona
 }
 _Input="$*"
 while getopts "hcsnurl" o; do case "${o}" in
 	c) client_only="True" ;;
-	s) silent_output="True" ;;
+	s) silent_mode="True" ;;
 	n) no_log="True" ;;
 	u) usa_state="True" ;;
 	l) _location="${_Input##*-l }" ;;
 	*) printf "Usage: covid [options] -l [string]\\nOptions:\\n   -c: Run as client.\\n   -s: Silence output.\\n   -n: Do not log output.\\n   -u: USA states stats.\\n   -l: enter location as [-l string].\\n   -h: Display this help.\\n" && exit ;;
 esac done
-[ -z "$client_only" ] && update_corona
+if [ -z "$client_only" ] ; then
+	update_corona
+	output_mode
+else
+	while true
+	do
+		output_mode
+		sleep 60
+	done
+fi
 [ -z "$no_log" ] && log_corona
-silent_mode
