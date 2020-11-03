@@ -11,5 +11,5 @@ uninstall:
 	@rm -vf ${DESTDIR}${PREFIX}/bin/covid
 	@echo Done uninstalling
 cronadd:
-	@cronscript
+	@sh ./cronscript
 	@echo crontab updated
