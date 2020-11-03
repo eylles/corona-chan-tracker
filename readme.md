@@ -5,16 +5,24 @@ This script displays covid-19 data formatted for statusbars and/or panels.
 
 ## Install
 
-```
+```sh
 git clone https://github.com/eylles/corona-chan-tracker
 cd corona-chan-tracker
-chmod +x ./install.sh
-./install.sh
+~~chmod +x ./install.sh~~
+~~./install.sh~~
+make install
 ```
-The install script will locate the script in the $HOME/.local/bin/ directory and add it to PATH in .bashrc IF it ain't already added to PATH in your system, if you have a different dedicated scripts directory already added to PATH just go there in a terminal and run:
+
+There's an automated way to add an example cronjob just run
+```sh
+make cronadd
 ```
-wget https://raw.githubusercontent.com/eylles/corona-chan-tracker/master/covid
-chmod +x covid
+after running ``make install``.
+
+~~The install script will locate the script in the $HOME/.local/bin/ directory and add it to PATH in .bashrc IF it ain't already added to PATH in your system, if you have a different dedicated scripts directory already added to PATH just go there in a terminal and run:~~
+```
+~~wget https://raw.githubusercontent.com/eylles/corona-chan-tracker/master/covid~~
+~~chmod +x covid~~
 ```
 
 ## How To Use
