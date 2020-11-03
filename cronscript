@@ -1,0 +1,14 @@
+#!/bin/sh
+
+echo "enter hour to update the corona cache: "
+read -r _time
+_hour="${_time%%:*}"
+_min="${_time##*:}"
+echo "enter your country code (USA residents can get per state data just by entering us)"
+read -r _country
+[ "$_country" = "us" ] && _use_location="u" || _use_location=" -l ${_country}"
+
+_script_location="$(command -v covid)"
+APPEND="${_min} ${_hour} "'* * *'" ${_script_location} -s${_use_location}"
+crontab -l | sed '/covid -s -l/d' | sed '$a'"$APPEND" | crontab -
+echo "this is the crontab setting for corona-chan tracker '""$APPEND""'"
