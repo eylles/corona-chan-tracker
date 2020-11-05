@@ -4,6 +4,7 @@ echo "enter hour to update the corona cache: "
 read -r _time
 _hour="${_time%%:*}"
 _min="${_time##*:}"
+_min="${_min#0}"
 echo "enter your country code (USA residents can get per state data just by entering us)"
 read -r _country
 [ "$_country" = "us" ] && _use_location="u" || _use_location=" -l ${_country}"
