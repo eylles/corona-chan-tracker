@@ -11,5 +11,5 @@ read -r _country
 
 _script_location="$(command -v covid)"
 APPEND="${_min} ${_hour} "'* * *'" ${_script_location} -s${_use_location}"
-crontab -l | sed '/covid -s -l/d' | sed '$a'"$APPEND" | crontab -
+crontab -l | sed '/covid -s/d' | sed '$a'"$APPEND" | crontab -
 echo "this is the crontab setting for corona-chan tracker '""$APPEND""'"
