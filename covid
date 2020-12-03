@@ -25,22 +25,27 @@ output_mode () {
 	[ -z "$silent_mode" ] && show_corona
 }
 _Input="$*"
-while getopts "hcsnurl" o; do case "${o}" in
-	c) client_only="True" ;;
+while getopts "hcsnurl0" o; do case "${o}" in
+	c) client_only="cicle" ;;
+	0) client_only="once" ;;
 	s) silent_mode="True" ;;
 	n) no_log="True" ;;
 	u) usa_state="True" ;;
 	l) _location="${_Input##*-l }" ;;
-	*) printf "Usage: covid [options] -l [string]\\nOptions:\\n   -c: Run as client.\\n   -s: Silence output.\\n   -n: Do not log output.\\n   -u: USA states stats.\\n   -l: enter location as [-l string].\\n   -h: Display this help.\\n" && exit ;;
+	*) printf "Usage: covid [options] -l [string]\\nOptions:\\n   -c: Run as client cicle.\\n   -0: Run as client once.\\n   -s: Silence output.\\n   -n: Do not log output.\\n   -u: USA states stats.\\n   -l: enter location as [-l string].\\n   -h: Display this help.\\n" && exit ;;
 esac done
 if [ -z "$client_only" ] ; then
 	update_corona
 	output_mode
 else
-	while true
-	do
+	if [ "cicle" = "$client_only" ] ; then
+		while true
+		do
+			output_mode
+			sleep 60
+		done
+	else
 		output_mode
-		sleep 60
-	done
+	fi
 fi
 [ -z "$no_log" ] && log_corona

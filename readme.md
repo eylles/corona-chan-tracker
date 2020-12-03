@@ -21,7 +21,8 @@ covid -l br
 ```
 Usage: covid [options] -l [string]
 Options:
-   -c: Run as client.
+   -c: Run as client cicle.
+	 -0: Run as client once.
    -s: Silence output.
    -n: Do not log output.
    -u: USA states stats.
