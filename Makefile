@@ -4,7 +4,6 @@ PREFIX = ~/.local
 install:
 	@chmod 755 covid
 	@mkdir -p ${DESTDIR}${PREFIX}/bin
-	@mkdir -p ${DESTDIR}${PREFIX}/share
 	@cp -vf covid ${DESTDIR}${PREFIX}/bin
 	@echo Done installing
 uninstall:
