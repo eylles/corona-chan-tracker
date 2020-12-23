@@ -29,4 +29,18 @@ Options:
    -l: enter location as [-l string].
    -h: Display this help.
 
-<img src="./posixshellmeme.png" width="500">
+## screenshot
+running inside awesomewm on the wibar
+<img src="./screenshot.png" width="500">
+
+this is how you add it
+```lua
+...
+        { -- Right widgets
+            layout = wibox.layout.fixed.horizontal,
+						awful.widget.watch('covid -0 -l --{your country code here}--', 180),
+...
+```
+
+<img src="./posixshellmeme.png" width="200">
+(no longer true as it has a makefile now)
