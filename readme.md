@@ -31,6 +31,7 @@ Options:
 
 ## screenshot
 running inside awesomewm on the wibar
+
 <img src="./screenshot.png" width="500">
 
 this is how you add it
@@ -38,7 +39,7 @@ this is how you add it
 ...
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-						awful.widget.watch('covid -0 -l --{your country code here}--', 180),
+						awful.widget.watch('covid -0 -l --country code--', 180),
 ...
 ```
 
