@@ -2,6 +2,7 @@
 <img src="https://i.kym-cdn.com/photos/images/original/001/716/682/936.png" width="500">
 
 This script displays covid-19 data formatted for statusbars and/or panels.
+So far tried and tested in mate-panel, polybar and wibar (awesomewm), it should work in othe desktop enviorements and perhaps in bitbar for mac.
 
 ## Install
 
@@ -42,6 +43,10 @@ this is how you add it
 						awful.widget.watch('covid -0 -l --country code--', 180),
 ...
 ```
+
+## credits
+Luke Smith's [video](https://www.youtube.com/watch?v=cQ03v4d3QEo) on whcih he writes a script, which served as the base for this scrip
+sagarkarira's [Coronavirus Tracker Cli](https://github.com/sagarkarira/coronavirus-tracker-cli) as this script uses it's curl interface
 
 <img src="./posixshellmeme.png" width="200">
 (no longer true as it has a makefile now)
