@@ -1,4 +1,7 @@
 #!/bin/sh
+coronascii() {
+	printf '%s' "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" | base64 -d | zstd -d --stdout
+}
 get_corona_us () {
 	curl -s -f https://corona-stats.online/states/us -o ~/.cache/corona || get_corona_us
 }
@@ -25,27 +28,32 @@ output_mode () {
 	[ -z "$silent_mode" ] && show_corona
 }
 _Input="$*"
-while getopts "hcsnurl0" o; do case "${o}" in
+while getopts "hcCsnurl0" o; do case "${o}" in
 	c) client_only="cicle" ;;
 	0) client_only="once" ;;
+	C) coronachan="True" ;;
 	s) silent_mode="True" ;;
 	n) no_log="True" ;;
 	u) usa_state="True" ;;
 	l) _location="${_Input##*-l }" ;;
 	*) printf "Usage: covid [options] -l [string]\\nOptions:\\n   -c: Run as client cicle.\\n   -0: Run as client once.\\n   -s: Silence output.\\n   -n: Do not log output.\\n   -u: USA states stats.\\n   -l: enter location as [-l string].\\n   -h: Display this help.\\n" && exit ;;
 esac done
-if [ -z "$client_only" ] ; then
-	update_corona
-	output_mode
+if [ ! -z "$coronachan" ] ; then
+	coronascii
 else
-	if [ "cicle" = "$client_only" ] ; then
-		while true
-		do
-			output_mode
-			sleep 60
-		done
-	else
+	if [ -z "$client_only" ] ; then
+		update_corona
 		output_mode
+	else
+		if [ "cicle" = "$client_only" ] ; then
+			while true
+			do
+				output_mode
+				sleep 60
+			done
+		else
+			output_mode
+		fi
 	fi
+	[ -z "$no_log" ] && log_corona
 fi
-[ -z "$no_log" ] && log_corona
