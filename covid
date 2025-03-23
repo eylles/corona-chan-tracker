@@ -46,7 +46,7 @@ while getopts "hcCBMsnurl0" o; do case "${o}" in
     l) _location="${_Input##*-l }" ;;
     *) printf "Usage: covid [options] -l [string]\\nOptions:\\n   -c: Run as client cicle.\\n   -0: Run as client once.\\n   -s: Silence output.\\n   -n: Do not log output.\\n   -u: USA states stats.\\n   -l: enter location as [-l string].\\n   -h: Display this help.\\n" && exit ;;
 esac done
-if [ ! -z "$P" ] ; then
+if [ -n "$P" ] ; then
     case "$P" in
         "coronachan") coronascii ;;
         "brodiep") brodiepepe ;;
