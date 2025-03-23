@@ -8,4 +8,4 @@ grep -qxF "export PATH" "$HOME"/.bashrc || echo 'export PATH' >> "$HOME"/.bashrc
 # reload .bashrc
 # source "$HOME"/.bashrc
 # Gay bs, look at my 69420 iq move.
-. ~/.bashrc
+. "$HOME/.bashrc"
